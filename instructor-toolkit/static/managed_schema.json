@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "canvasDomains": {
+      "title": "Additional Canvas domains",
+      "description": "Vanity Canvas hostnames (for example canvas.school.edu) the toolkit should run on, in addition to *.instructure.com.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "features": {
+      "title": "Feature switches",
+      "description": "Force individual modules on (true) or off (false). Omitted modules follow the user's own setting.",
+      "type": "object",
+      "properties": {
+        "datesEditor": { "type": "boolean" },
+        "sisToggle": { "type": "boolean" },
+        "auditor": { "type": "boolean" },
+        "snippets": { "type": "boolean" },
+        "rubricHotkeys": { "type": "boolean" },
+        "privateNotes": { "type": "boolean" },
+        "keyboardFlow": { "type": "boolean" }
+      }
+    },
+    "licenseKey": { "title": "Institution licence key", "type": "string" },
+    "backendUrl": { "title": "Toolkit backend URL", "description": "Reserved for shared snippet libraries and licence checks (phase 4).", "type": "string" },
+    "snippetLibrary": {
+      "title": "Default snippet library",
+      "description": "Snippets pushed to every instructor, shown read-only beside their own.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "body": { "type": "string" },
+          "folder": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

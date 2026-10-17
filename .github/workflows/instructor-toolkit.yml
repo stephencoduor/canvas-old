@@ -1,0 +1,30 @@
+name: Instructor Toolkit
+
+on:
+  pull_request:
+    paths: ['instructor-toolkit/**', '.github/workflows/instructor-toolkit.yml']
+  push:
+    branches: [master]
+    paths: ['instructor-toolkit/**']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: instructor-toolkit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: instructor-toolkit/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: instructor-toolkit
+          path: instructor-toolkit/instructor-toolkit-*.zip

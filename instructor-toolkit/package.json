@@ -1,0 +1,28 @@
+{
+  "name": "instructor-toolkit-for-canvas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Instructor Toolkit for Canvas: a Chrome MV3 extension suite (dates and modules editor, course copy auditor, SpeedGrader Pro).",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test && npm run build",
+    "zip": "node build.mjs --zip"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/chrome": "^0.3.5",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "esbuild": "^0.25.12",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
